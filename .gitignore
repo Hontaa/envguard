@@ -6,3 +6,9 @@ envguard.db
 dist/
 build/
 .venv/
+
+# test fixtures
+sample.env
+leak.env
+staging.env
+prod.env
