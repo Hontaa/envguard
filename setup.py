@@ -8,6 +8,6 @@ setup(
     py_modules=[],
     packages=find_packages(exclude=("tests",)),
     entry_points={"console_scripts": ["envguard=envguard.cli:main"]},
-    python_requires=">=3.10",
+    python_requires=">=3.9",
     install_requires=[],
 )
