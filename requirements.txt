@@ -1,0 +1,6 @@
+# envguard core dependencies
+# (pure standard library at runtime; these are for the API server + dev)
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.0
+pytest>=8.0
