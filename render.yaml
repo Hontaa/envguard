@@ -1,0 +1,25 @@
+# Render.com deployment manifest (free tier).
+# Deploy: push to GitHub, connect repo in Render dashboard, set env vars below.
+services:
+  - type: web
+    name: envguard
+    runtime: python
+    plan: free
+    buildCommand: pip install -e . && pip install fastapi uvicorn pydantic httpx
+    startCommand: uvicorn api_server:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /docs
+    envVars:
+      - key: ENVGUARD_DB
+        value: /data/envguard.db
+      - key: ENVGUARD_KEYS
+        sync: false   # set manually: comma-separated pre-issued keys (optional)
+      - key: LEMONSQUEEZY_API_KEY
+        sync: false   # set manually from Lemon Squeezy dashboard
+      - key: LEMONSQUEEZY_SIGNING_SECRET
+        sync: false
+      - key: LEMONSQUEEZY_STORE_ID
+        sync: false
+      - key: LEMONSQUEEZY_PRODUCT_ID
+        sync: false
+      - key: APP_URL
+        sync: false   # public URL Render gives you after first deploy
