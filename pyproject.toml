@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "envguard"
+version = "0.1.0"
+description = "Python-native validator for .env / config files with secret-leak detection and drift diffing."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["envguard*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
