@@ -6,6 +6,7 @@
   <img src="https://img.shields.io/badge/python-3.11-3776ab?style=for-the-badge&logo=python&logoColor=white"/>
   <img src="https://img.shields.io/badge/license-MIT-2ea043?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/tests-7%20passed-2ea043?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/actions/workflow/status/Hontaa/envguard/ci.yml?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/API-FastAPI-58a6ff?style=for-the-badge"/>
 </p>
 
@@ -25,8 +26,10 @@ and drift history. **envguard** does all three, self-hostable in 30 seconds.
 ## Install
 
 ```bash
-pip install envguard
+# from git (not yet on PyPI)
+pip install git+https://github.com/Hontaa/envguard.git
 ```
+
 
 ## Quick start
 
@@ -76,6 +79,18 @@ ENVGUARD_KEYS=sk_demo uvicorn api_server:app --port 8000
 | `POST /v1/validate` | none (open core) | schema validation |
 | `POST /v1/scan` | API key | secret-leak scan |
 | `POST /v1/drift` | API key | snapshot + compare, stores history |
+
+Example response (`POST /v1/validate`):
+
+```json
+{
+  "ok": false,
+  "errors": [
+    {"key": "API_URL", "message": "must be a valid URL"},
+    {"key": "PORT", "message": "expected int, got 'abc'"}
+  ]
+}
+```
 
 ## Paid layer (hosted SaaS)
 
