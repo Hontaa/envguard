@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="22%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#2ea043" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#2ea043" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="320" fill="url(#bg)"/>
+  <rect width="1280" height="320" fill="url(#glow2)"/>
+  <!-- shield + key -->
+  <g transform="translate(120,160)">
+    <path d="M0 -70 L60 -45 L60 15 Q60 75 0 95 Q-60 75 -60 15 L-60 -45 Z"
+          fill="#161b22" stroke="#2ea043" stroke-width="3"/>
+    <path d="M-22 5 l16 16 l34 -38" fill="none" stroke="#58a6ff" stroke-width="6"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="34" cy="-30" r="12" fill="none" stroke="#58a6ff" stroke-width="3"/>
+  </g>
+  <g font-family="ui-monospace, monospace" fill="#e6edf3">
+    <text x="430" y="150" font-size="58" font-weight="700">envguard</text>
+    <text x="432" y="200" font-size="22" fill="#8b949e">Python-native .env / config validator</text>
+    <text x="432" y="240" font-size="20" fill="#3fb950">&gt; catch misconfig &amp; secret leaks before prod</text>
+  </g>
+</svg>

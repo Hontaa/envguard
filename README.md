@@ -1,18 +1,26 @@
-# envguard
+<p align="center">
+  <img src="envguard_banner.svg" alt="envguard banner" width="100%"/>
+</p>
 
-Python-native validator for `.env` / config files. Catch misconfig and
-secret leaks **before** they hit production.
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.11-3776ab?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/license-MIT-2ea043?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/tests-7%20passed-2ea043?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/API-FastAPI-58a6ff?style=for-the-badge"/>
+</p>
 
-> Free OSS core (this repo) + optional hosted dashboard (team alerts,
-> secret-leak history, staging↔prod drift tracking) — see *Paid layer*.
+<h1 align="center">envguard</h1>
+<p align="center"><b>Python-native validator for <code>.env</code> / config files.</b><br/>
+Catch misconfig and secret leaks <b>before</b> they hit production.</p>
+
+---
 
 ## Why
 
-`python-dotenv` only *loads* env files — it does not tell you that
-`API_URL` is missing or that `PORT` is `"abc"`. `dotenv-linter` is a
-great Rust CLI but there is **no Python library + no hosted service**
-that combines schema validation, secret-leak scanning, and drift history.
-envguard does all three, and you can self-host the API in 30 seconds.
+`python-dotenv` only *loads* env files — it won't tell you `API_URL` is missing or
+`PORT` is `"abc"`. `dotenv-linter` is a great Rust CLI, but there is **no Python
+library + no hosted service** combining schema validation, secret-leak scanning,
+and drift history. **envguard** does all three, self-hostable in 30 seconds.
 
 ## Install
 
@@ -33,14 +41,14 @@ schema = {
     "PORT":    {"required": True, "type": "int"},
 }
 result = validate(env, schema)
-print(result.ok)            # False
+print(result.ok)          # False
 for e in result.errors:
-    print(e.key, e.message) # API_URL expected url...; PORT expected int...
+    print(e.key, e.message)
 
-print(find_leaks(env))      # [('AWS_KEY', 'AWS_ACCESS_KEY')]
+print(find_leaks(env))    # [('AWS_KEY', 'AWS_ACCESS_KEY')]
 ```
 
-### Drift detection (staging vs prod)
+### Drift (staging vs prod)
 
 ```python
 staging = parse_env("A=1\nB=2")
@@ -52,9 +60,9 @@ print(diff_envs(staging, prod))
 ## CLI
 
 ```bash
-envguard check .env --schema schema.json
-envguard scan .env
-envguard diff staging.env prod.env
+envguard check .env --schema schema.json     # schema validation
+envguard scan  .env                          # secret-leak scan
+envguard diff  staging.env prod.env          # drift between environments
 ```
 
 ## API (self-hosted)
