@@ -12,3 +12,6 @@ sample.env
 leak.env
 staging.env
 prod.env
+
+# hermes temp
+tests/.hermes-tmp.*
