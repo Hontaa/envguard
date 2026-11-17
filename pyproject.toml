@@ -9,6 +9,9 @@ description = "Python-native validator for .env / config files with secret-leak 
 requires-python = ">=3.9"
 dependencies = ["httpx>=0.27"]
 
+[tool.setuptools]
+py-modules = ["api_server", "billing"]
+
 [tool.setuptools.packages.find]
 include = ["envguard*"]
 
