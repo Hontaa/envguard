@@ -7,7 +7,7 @@ name = "envguard"
 version = "0.1.0"
 description = "Python-native validator for .env / config files with secret-leak detection and drift diffing."
 requires-python = ">=3.9"
-dependencies = []
+dependencies = ["httpx>=0.27"]
 
 [tool.setuptools.packages.find]
 include = ["envguard*"]

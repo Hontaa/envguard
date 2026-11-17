@@ -14,4 +14,10 @@ staging.env
 prod.env
 
 # hermes temp
+.hermes-tmp.*
 tests/.hermes-tmp.*
+HERMES_DIAGNOSTICS/
+
+# profile assets belong to the Hontaa/Hontaa repo, not here
+profile_readme.md
+profile_banner.svg
